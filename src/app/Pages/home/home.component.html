@@ -1,12 +1,16 @@
 <main>
-    <div class="lg-flex lg:flex">
-        <app-sidebar/>
+  <div class="lg-flex lg:flex">
+    <app-sidebar />
 
-        <app-search-bar/>
+    <div class="main-body">
+      <app-search-bar />
+      <p class="text-white mx-5 md:mx-8 md:text-3xl text-2xl font-[200] lg:ml-2">Trending</p>
+
+      <div class="trending mt-4 ml-5 md:ml-8 lg:ml-2">
+        <app-trending-card />
+      </div>
     </div>
-    
-   
-   <!--<app-trending-card/>
-   
-   <app-regular-card/> -->
+  </div>
+
+  <!-- <app-regular-card/> -->
 </main>

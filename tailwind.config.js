@@ -6,6 +6,8 @@ module.exports = {
   theme: {
     extend:{
       colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
         'active-red':'#FC4747',
         'bg-dark':'#10141E',
         'dark-gray':'#5A698F',
@@ -17,5 +19,6 @@ module.exports = {
     
   },
   plugins: [
+    require('tailwind-scrollbar-hide')
   ],
 }
