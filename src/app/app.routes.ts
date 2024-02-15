@@ -7,9 +7,9 @@ import { MoviesComponent } from './Pages/movies/movies.component';
 import { BookmarkedComponent } from './Pages/bookmarked/bookmarked.component';
 
 export const routes: Routes = [
-    {path:"", component: LoginComponent},
+    {path:"login", component: LoginComponent},
     {path:"sign-up", component: RegisterComponent},
-    {path:"home", component: HomeComponent},
+    {path:"", component: HomeComponent},
     {path:"series", component: SeriesComponent},
     {path:"movies", component: MoviesComponent},
     {path:"bookmarked", component: BookmarkedComponent}
