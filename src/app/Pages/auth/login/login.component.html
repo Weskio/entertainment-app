@@ -2,24 +2,27 @@
   <img src="../../../../assets/logo.svg" alt="" class="ml-auto mr-auto mt-16" />
 
   <div
-    class="sign-in-cont my-16 mx-8 sm:mx-32 md:mx-56 lg:mx-80 xl:mx-[28rem] 2xl:mx-[38rem] p-6 rounded-lg bg-dark-blue text-[2.2rem] font-[200]"
+    class="sign-in-cont my-16 mx-8 sm:mx-32 md:mx-56 lg:mx-80 xl:mx-[28rem] 2xl:mx-[36rem] p-6 rounded-lg bg-dark-blue text-[2.2rem] font-[200]"
   >
     <p class="text-white">Login</p>
 
-    <form action="" class="mt-6">
+    <form [formGroup]="loginForm" class="mt-6">
       <input
         type="email"
+        formControlName="email"
         placeholder="Email address"
         class="w-full h-10 text-[1.15rem] px-4 pb-5 bg-transparent border-b text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
       />
       <input
         type="password"
+        formControlName="password"
         placeholder="Password"
         class="w-full h-10 text-[1.15rem] mt-8 px-4 pb-5 bg-transparent border-b text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
       />
 
       <button
-        class="w-full text-[1rem] rounded-md bg-active-red py-3 mt-12 text-white"
+      [disabled]="loginForm.invalid"
+        class="w-full text-[1rem] rounded-md bg-active-red py-3 mt-12 text-white disabled:opacity-40 disabled:cursor-not-allowed"
       >
         Login to your account
       </button>
