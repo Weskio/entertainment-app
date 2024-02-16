@@ -1,1 +1,28 @@
-<p>bookmarked works!</p>
+<main>
+    <div class="lg:flex">
+  
+      <div class="fixed  w-full top-0 z-10 lg:z-0">
+          <app-sidebar [activePage]="'bookmarked'"/>
+      </div>
+     
+  
+      <div class="main-body pt-16 md:pt-24 lg:pt-0 z-10 lg:mt-2 lg:ml-40">
+        <app-search-bar />
+  
+        <div class="movies mt-4 ml-2 md:ml-8 lg:ml-2">
+  
+          <p
+          class="text-white mt-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
+        >
+         Bookmarked movies
+        </p>
+  
+        <div >
+          <app-regular-card  class="regular grid gap-6 grid-cols-2 md:grid-cols-3 md:ml-2 lg:grid-cols-4 ml-4 mx-5 lg:ml-2 mt-6"/>
+        </div>
+  
+  
+        </div>
+      </div>
+    </div>
+  </main>
