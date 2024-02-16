@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SearchService } from '../../services/search.service';
+import { FormsModule, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-search-bar',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.css'
 })
 export class SearchBarComponent {
+
+  searchKey: string = '';
+
+  constructor(private searchService: SearchService) {}
+
+  filterShows() {
+    this.searchService.setSearchValue(this.searchKey);
+  }
+
+    @Input() placeholder!: string;
 
 }

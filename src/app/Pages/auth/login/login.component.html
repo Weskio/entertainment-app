@@ -7,23 +7,30 @@
     <p class="text-white">Login</p>
 
     <form [formGroup]="loginForm" class="mt-6">
-      <input
+      <div class="relative">
+        <input
         type="email"
         formControlName="email"
-        required=""
         placeholder="Email address"
-        class="w-full h-10 text-[1.15rem] px-4 pb-5 bg-transparent border-b text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
-      />
-      <input
+        class="w-full h-10 text-[1.15rem] peer px-4 pb-5 bg-transparent border-b invalid:focus:border-b-active-red text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
+      /> 
+       <p class="text-lg text-active-red peer-invalid:visible invisible absolute top-4 right-6">Please enter a valid email</p>
+      </div>
+     
+      <div class="p relative">
+        <input
         type="password"
         formControlName="password"
         placeholder="Password"
-        class="w-full h-10 text-[1.15rem] mt-8 px-4 pb-5 bg-transparent border-b text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
+        class="w-full h-10 text-[1.15rem] peer mt-8 px-4 pb-5  bg-transparent border-b text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
       />
+      <!-- <p class="text-lg peer-empty:visible peer-focus:invisible text-active-red absolute top-6 right-6">Can't be empty</p> -->
+      </div>
+     
 
       <button
       [disabled]="loginForm.invalid"
-        class="w-full text-[1rem] rounded-md bg-active-red py-3 mt-12 text-white disabled:opacity-40 disabled:cursor-not-allowed"
+        class="w-full text-[1rem] hover:text-dark-blue hover:bg-white rounded-md disabled:hover:bg-active-red disabled:hover:text-white bg-active-red py-3 mt-12 text-white disabled:opacity-40 disabled:cursor-not-allowed"
       >
         Login to your account
       </button>

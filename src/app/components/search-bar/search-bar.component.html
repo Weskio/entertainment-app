@@ -1,6 +1,18 @@
-<main class="md:mx-8 mx-5 my-8 lg:mt-[58px] lg:ml-2 flex">
-    <img src="../../../assets/icon-search.svg" alt="">
-    <form action="" class="w-full ml-4">
-        <input type="text" placeholder="Search for movies or TV series" class="w-full lg:w-[75vw] h-8 text-lg font-[200] bg-transparent text-white caret-active-red lg:focus:border-b border-b-dark-gray focus:outline-none">
-    </form>
-</main>
+
+  <form
+   (submit)="filterShows()"
+    class=" ml-4 md:mx-8 mx-5 my-8 lg:mt-[58px] gap-2 lg:ml-2 flex"
+  >
+    <button type="submit">
+      <img src="../../../assets/icon-search.svg" alt="" />
+    </button>
+
+    <input
+      type="text"
+      [(ngModel)] = "searchKey"
+      [placeholder]="placeholder"
+      name="search"
+      class="w-full lg:w-full h-8 text-lg font-[200] bg-transparent text-white caret-active-red lg:focus:border-b border-b-dark-gray focus:outline-none"
+    />
+  </form>
+

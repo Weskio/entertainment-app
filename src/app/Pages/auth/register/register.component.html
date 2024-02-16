@@ -7,36 +7,43 @@
       <p class="text-white">Sign Up</p>
   
       <form class="mt-6" [formGroup]="registerForm" >
-        <input
+        <div class="relative">
+          <input
           type="email"
           formControlName="email"
           placeholder="Email address"
-          class="w-full h-10 text-[1.15rem] px-4 pb-5 bg-transparent border-b text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
-        />
-        <input
+          class="w-full h-10 text-[1.15rem] peer px-4 pb-5 bg-transparent border-b invalid:focus:border-b-active-red text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
+        /> 
+         <p class="text-lg text-active-red peer-invalid:visible invisible absolute top-4 right-6">Please enter a valid email</p>
+        </div>
+       
+        <div class="p relative">
+          <input
           type="password"
           formControlName="password"
           placeholder="Password"
-          class="w-full h-10 text-[1.15rem] mt-8 px-4 pb-5 bg-transparent border-b text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
+          class="w-full h-10 text-[1.15rem] peer mt-8 px-4 pb-5 bg-transparent border-b text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
         />
+        <!-- <p class="text-lg invisible peer-empty:visible text-active-red absolute top-6 right-6">Can't be empty</p> -->
+        </div>
         <input
         type="password"
         formControlName="confirmPassword"
         placeholder="Repeat Password"
-        class="w-full h-10 text-[1.15rem] mt-8 px-4 pb-5 bg-transparent border-b text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
+        class="w-full h-10 text-[1.15rem] mt-8 px-4 pb-5  bg-transparent border-b text-white border-b-dark-gray focus:outline-none caret-active-red focus:border-b-white"
       />
   
         <button
         type="submit"
         [disabled]="registerForm.invalid"
-          class="w-full text-[1rem] rounded-md bg-active-red py-3 mt-12 text-white disabled:opacity-40 disabled:cursor-not-allowed"
+          class="w-full text-[1rem] rounded-md hover:text-dark-blue disabled:hover:bg-active-red disabled:hover:text-white hover:bg-white bg-active-red py-3 mt-12 text-white disabled:opacity-40 disabled:cursor-not-allowed"
         >
           Create an account
         </button>
   
         <p class="text-[1.1rem] text-center text-white mt-6">
           Already have an account?
-          <a href="">
+          <a href="/login">
             <span class="text-active-red cursor-pointer">Login</span>
           </a>
         </p>
