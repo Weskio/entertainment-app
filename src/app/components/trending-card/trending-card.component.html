@@ -1,22 +1,20 @@
-<main >
-    <div
-    class="snap-center lg:w-[40%] h-[210px] md:h-[250px] lg:h-[270px] md:w-[60%] w-[74%] inline-block md:mr-6  p-2 hover:scale-105 ease-in-out duration-300"
-  >
+<main class="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide" >
+   
   <div class="relative w-full h-full cursor-pointer">
       <img
-        src="../../../assets/thumbnails/beyond-earth/trending/large.jpg"
+        [src]="show.thumbnail.trending?.large"
         alt=""
         class="hidden md:block peer  w-full h-full rounded-lg opacity-70 hover:opacity-30"
       />
       <img
-        src="../../../assets/thumbnails/beyond-earth/trending/small.jpg"
+      [src]="show.thumbnail.trending?.small"
         alt=""
         class="md:hidden w-full peer h-full rounded-lg opacity-70 hover:opacity-30"
       />
 
       <div class="bookmark absolute top-3 right-4">
         <svg
-          class="w-9 h-9 bg-opacity-40 bg-black hover:bg-white hover:text-black p-1 rounded-full text-white"
+          [ngClass]="{'w-9 h-9 bg-opacity-40 bg-black hover:bg-white hover:text-black p-1 rounded-full text-white':true ,'bg-white bg-opacity-100 text-black': show.isBookmarked}"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -34,7 +32,7 @@
   
       <div class="details absolute bottom-5 ml-5">
         <ul class="flex gap-6 list-disc text-gray-300 text-sm font-[200]">
-          <li class="list-none">2019</li>
+          <li class="list-none">{{show.year}}</li>
           <li>
             <div class="flex gap-1">
               <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
@@ -45,12 +43,12 @@
                   class=""
                 />
               </svg>
-              <span class="text-sm -mt-1">Movie</span>
+              <span class="text-sm -mt-1">{{show.category}}</span>
             </div>
           </li>
-          <li>PG</li>
+          <li>{{show.rating}}</li>
         </ul>
-        <p class="text-white text-lg">Beyond Earth</p>
+        <p class="text-white text-lg">{{show.title}}</p>
       </div>
     
       <div class="hover-play hidden p-3 bg-white bg-opacity-20 rounded-full hover:flex  peer-hover:flex gap-2 absolute top-[40%] left-[40%]">
@@ -58,313 +56,6 @@
        <p class="text-white">Play</p>
       </div>
     </div>
-</div>
-
-<div
-    class="snap-center lg:w-[40%] h-[210px] md:h-[250px] lg:h-[270px] md:w-[60%] w-[74%] inline-block md:mr-6  p-2 hover:scale-105 ease-in-out duration-300"
-  >
-  <div class="relative w-full h-full cursor-pointer">
-      <img
-        src="../../../assets/thumbnails/beyond-earth/trending/large.jpg"
-        alt=""
-        class="hidden md:block peer  w-full h-full rounded-lg opacity-70 hover:opacity-30"
-      />
-      <img
-        src="../../../assets/thumbnails/beyond-earth/trending/small.jpg"
-        alt=""
-        class="md:hidden w-full peer h-full rounded-lg opacity-70 hover:opacity-30"
-      />
-
-      <div class="bookmark absolute top-3 right-4">
-        <svg
-          class="w-9 h-9 bg-opacity-40 bg-black hover:bg-white hover:text-black p-1 rounded-full text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="m17 21-5-4-5 4V3.9c0-.2 0-.5.2-.6l.6-.3h8.4c.2 0 .4 0 .6.3l.2.6V21Z"
-          />
-        </svg>
-      </div>
-  
-      <div class="details absolute bottom-5 ml-5">
-        <ul class="flex gap-6 list-disc text-gray-300 text-sm font-[200]">
-          <li class="list-none">2019</li>
-          <li>
-            <div class="flex gap-1">
-              <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.173 0H1.827A1.827 1.827 0 0 0 0 1.827v8.346C0 11.183.818 12 1.827 12h8.346A1.827 1.827 0 0 0 12 10.173V1.827A1.827 1.827 0 0 0 10.173 0ZM2.4 5.4H1.2V4.2h1.2v1.2ZM1.2 6.6h1.2v1.2H1.2V6.6Zm9.6-1.2H9.6V4.2h1.2v1.2ZM9.6 6.6h1.2v1.2H9.6V6.6Zm1.2-4.956V2.4H9.6V1.2h.756a.444.444 0 0 1 .444.444ZM1.644 1.2H2.4v1.2H1.2v-.756a.444.444 0 0 1 .444-.444ZM1.2 10.356V9.6h1.2v1.2h-.756a.444.444 0 0 1-.444-.444Zm9.6 0a.444.444 0 0 1-.444.444H9.6V9.6h1.2v.756Z"
-                  fill="#FFF"
-                  opacity=".75"
-                  class=""
-                />
-              </svg>
-              <span class="text-sm -mt-1">Movie</span>
-            </div>
-          </li>
-          <li>PG</li>
-        </ul>
-        <p class="text-white text-lg">Beyond Earth</p>
-      </div>
-    
-      <div class="hover-play hidden p-3 bg-white bg-opacity-20 rounded-full hover:flex  peer-hover:flex gap-2 absolute top-[40%] left-[40%]">
-       <img src="../../../assets/icon-play.svg" alt="" class="">
-       <p class="text-white">Play</p>
-      </div>
-    </div>
-</div>
-
-<div
-    class="snap-center lg:w-[40%] h-[210px] md:h-[250px] lg:h-[270px] md:w-[60%] w-[74%] inline-block md:mr-6  p-2 hover:scale-105 ease-in-out duration-300"
-  >
-  <div class="relative w-full h-full cursor-pointer">
-      <img
-        src="../../../assets/thumbnails/beyond-earth/trending/large.jpg"
-        alt=""
-        class="hidden md:block peer  w-full h-full rounded-lg opacity-70 hover:opacity-30"
-      />
-      <img
-        src="../../../assets/thumbnails/beyond-earth/trending/small.jpg"
-        alt=""
-        class="md:hidden w-full peer h-full rounded-lg opacity-70 hover:opacity-30"
-      />
-
-      <div class="bookmark absolute top-3 right-4">
-        <svg
-          class="w-9 h-9 bg-opacity-40 bg-black hover:bg-white hover:text-black p-1 rounded-full text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="m17 21-5-4-5 4V3.9c0-.2 0-.5.2-.6l.6-.3h8.4c.2 0 .4 0 .6.3l.2.6V21Z"
-          />
-        </svg>
-      </div>
-  
-      <div class="details absolute bottom-5 ml-5">
-        <ul class="flex gap-6 list-disc text-gray-300 text-sm font-[200]">
-          <li class="list-none">2019</li>
-          <li>
-            <div class="flex gap-1">
-              <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.173 0H1.827A1.827 1.827 0 0 0 0 1.827v8.346C0 11.183.818 12 1.827 12h8.346A1.827 1.827 0 0 0 12 10.173V1.827A1.827 1.827 0 0 0 10.173 0ZM2.4 5.4H1.2V4.2h1.2v1.2ZM1.2 6.6h1.2v1.2H1.2V6.6Zm9.6-1.2H9.6V4.2h1.2v1.2ZM9.6 6.6h1.2v1.2H9.6V6.6Zm1.2-4.956V2.4H9.6V1.2h.756a.444.444 0 0 1 .444.444ZM1.644 1.2H2.4v1.2H1.2v-.756a.444.444 0 0 1 .444-.444ZM1.2 10.356V9.6h1.2v1.2h-.756a.444.444 0 0 1-.444-.444Zm9.6 0a.444.444 0 0 1-.444.444H9.6V9.6h1.2v.756Z"
-                  fill="#FFF"
-                  opacity=".75"
-                  class=""
-                />
-              </svg>
-              <span class="text-sm -mt-1">Movie</span>
-            </div>
-          </li>
-          <li>PG</li>
-        </ul>
-        <p class="text-white text-lg">Beyond Earth</p>
-      </div>
-    
-      <div class="hover-play hidden p-3 bg-white bg-opacity-20 rounded-full hover:flex  peer-hover:flex gap-2 absolute top-[40%] left-[40%]">
-       <img src="../../../assets/icon-play.svg" alt="" class="">
-       <p class="text-white">Play</p>
-      </div>
-    </div>
-</div>
-
-<div
-    class="snap-center lg:w-[40%] h-[210px] md:h-[250px] lg:h-[270px] md:w-[60%] w-[74%] inline-block md:mr-6  p-2 hover:scale-105 ease-in-out duration-300"
-  >
-  <div class="relative w-full h-full cursor-pointer">
-      <img
-        src="../../../assets/thumbnails/beyond-earth/trending/large.jpg"
-        alt=""
-        class="hidden md:block peer  w-full h-full rounded-lg opacity-70 hover:opacity-30"
-      />
-      <img
-        src="../../../assets/thumbnails/beyond-earth/trending/small.jpg"
-        alt=""
-        class="md:hidden w-full peer h-full rounded-lg opacity-70 hover:opacity-30"
-      />
-
-      <div class="bookmark absolute top-3 right-4">
-        <svg
-          class="w-9 h-9 bg-opacity-40 bg-black hover:bg-white hover:text-black p-1 rounded-full text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="m17 21-5-4-5 4V3.9c0-.2 0-.5.2-.6l.6-.3h8.4c.2 0 .4 0 .6.3l.2.6V21Z"
-          />
-        </svg>
-      </div>
-  
-      <div class="details absolute bottom-5 ml-5">
-        <ul class="flex gap-6 list-disc text-gray-300 text-sm font-[200]">
-          <li class="list-none">2019</li>
-          <li>
-            <div class="flex gap-1">
-              <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.173 0H1.827A1.827 1.827 0 0 0 0 1.827v8.346C0 11.183.818 12 1.827 12h8.346A1.827 1.827 0 0 0 12 10.173V1.827A1.827 1.827 0 0 0 10.173 0ZM2.4 5.4H1.2V4.2h1.2v1.2ZM1.2 6.6h1.2v1.2H1.2V6.6Zm9.6-1.2H9.6V4.2h1.2v1.2ZM9.6 6.6h1.2v1.2H9.6V6.6Zm1.2-4.956V2.4H9.6V1.2h.756a.444.444 0 0 1 .444.444ZM1.644 1.2H2.4v1.2H1.2v-.756a.444.444 0 0 1 .444-.444ZM1.2 10.356V9.6h1.2v1.2h-.756a.444.444 0 0 1-.444-.444Zm9.6 0a.444.444 0 0 1-.444.444H9.6V9.6h1.2v.756Z"
-                  fill="#FFF"
-                  opacity=".75"
-                  class=""
-                />
-              </svg>
-              <span class="text-sm -mt-1">Movie</span>
-            </div>
-          </li>
-          <li>PG</li>
-        </ul>
-        <p class="text-white text-lg">Beyond Earth</p>
-      </div>
-    
-      <div class="hover-play hidden p-3 bg-white bg-opacity-20 rounded-full hover:flex  peer-hover:flex gap-2 absolute top-[40%] left-[40%]">
-       <img src="../../../assets/icon-play.svg" alt="" class="">
-       <p class="text-white">Play</p>
-      </div>
-    </div>
-</div>
-
-<div
-    class="snap-center lg:w-[40%] h-[210px] md:h-[250px] lg:h-[270px] md:w-[60%] w-[74%] inline-block md:mr-6  p-2 hover:scale-105 ease-in-out duration-300"
-  >
-  <div class="relative w-full h-full cursor-pointer">
-      <img
-        src="../../../assets/thumbnails/beyond-earth/trending/large.jpg"
-        alt=""
-        class="hidden md:block peer  w-full h-full rounded-lg opacity-70 hover:opacity-30"
-      />
-      <img
-        src="../../../assets/thumbnails/beyond-earth/trending/small.jpg"
-        alt=""
-        class="md:hidden w-full peer h-full rounded-lg opacity-70 hover:opacity-30"
-      />
-
-      <div class="bookmark absolute top-3 right-4">
-        <svg
-          class="w-9 h-9 bg-opacity-40 bg-black hover:bg-white hover:text-black p-1 rounded-full text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="m17 21-5-4-5 4V3.9c0-.2 0-.5.2-.6l.6-.3h8.4c.2 0 .4 0 .6.3l.2.6V21Z"
-          />
-        </svg>
-      </div>
-  
-      <div class="details absolute bottom-5 ml-5">
-        <ul class="flex gap-6 list-disc text-gray-300 text-sm font-[200]">
-          <li class="list-none">2019</li>
-          <li>
-            <div class="flex gap-1">
-              <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.173 0H1.827A1.827 1.827 0 0 0 0 1.827v8.346C0 11.183.818 12 1.827 12h8.346A1.827 1.827 0 0 0 12 10.173V1.827A1.827 1.827 0 0 0 10.173 0ZM2.4 5.4H1.2V4.2h1.2v1.2ZM1.2 6.6h1.2v1.2H1.2V6.6Zm9.6-1.2H9.6V4.2h1.2v1.2ZM9.6 6.6h1.2v1.2H9.6V6.6Zm1.2-4.956V2.4H9.6V1.2h.756a.444.444 0 0 1 .444.444ZM1.644 1.2H2.4v1.2H1.2v-.756a.444.444 0 0 1 .444-.444ZM1.2 10.356V9.6h1.2v1.2h-.756a.444.444 0 0 1-.444-.444Zm9.6 0a.444.444 0 0 1-.444.444H9.6V9.6h1.2v.756Z"
-                  fill="#FFF"
-                  opacity=".75"
-                  class=""
-                />
-              </svg>
-              <span class="text-sm -mt-1">Movie</span>
-            </div>
-          </li>
-          <li>PG</li>
-        </ul>
-        <p class="text-white text-lg">Beyond Earth</p>
-      </div>
-    
-      <div class="hover-play hidden p-3 bg-white bg-opacity-20 rounded-full hover:flex  peer-hover:flex gap-2 absolute top-[40%] left-[40%]">
-       <img src="../../../assets/icon-play.svg" alt="" class="">
-       <p class="text-white">Play</p>
-      </div>
-    </div>
-</div>
-
-<div
-    class="snap-center lg:w-[40%] h-[210px] md:h-[250px] lg:h-[270px] md:w-[60%] w-[74%] inline-block md:mr-6  p-2 hover:scale-105 ease-in-out duration-300"
-  >
-  <div class="relative w-full h-full cursor-pointer">
-      <img
-        src="../../../assets/thumbnails/beyond-earth/trending/large.jpg"
-        alt=""
-        class="hidden md:block peer  w-full h-full rounded-lg opacity-70 hover:opacity-30"
-      />
-      <img
-        src="../../../assets/thumbnails/beyond-earth/trending/small.jpg"
-        alt=""
-        class="md:hidden w-full peer h-full rounded-lg opacity-70 hover:opacity-30"
-      />
-
-      <div class="bookmark absolute top-3 right-4">
-        <svg
-          class="w-9 h-9 bg-opacity-40 bg-black hover:bg-white hover:text-black p-1 rounded-full text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="m17 21-5-4-5 4V3.9c0-.2 0-.5.2-.6l.6-.3h8.4c.2 0 .4 0 .6.3l.2.6V21Z"
-          />
-        </svg>
-      </div>
-  
-      <div class="details absolute bottom-5 ml-5">
-        <ul class="flex gap-6 list-disc text-gray-300 text-sm font-[200]">
-          <li class="list-none">2019</li>
-          <li>
-            <div class="flex gap-1">
-              <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.173 0H1.827A1.827 1.827 0 0 0 0 1.827v8.346C0 11.183.818 12 1.827 12h8.346A1.827 1.827 0 0 0 12 10.173V1.827A1.827 1.827 0 0 0 10.173 0ZM2.4 5.4H1.2V4.2h1.2v1.2ZM1.2 6.6h1.2v1.2H1.2V6.6Zm9.6-1.2H9.6V4.2h1.2v1.2ZM9.6 6.6h1.2v1.2H9.6V6.6Zm1.2-4.956V2.4H9.6V1.2h.756a.444.444 0 0 1 .444.444ZM1.644 1.2H2.4v1.2H1.2v-.756a.444.444 0 0 1 .444-.444ZM1.2 10.356V9.6h1.2v1.2h-.756a.444.444 0 0 1-.444-.444Zm9.6 0a.444.444 0 0 1-.444.444H9.6V9.6h1.2v.756Z"
-                  fill="#FFF"
-                  opacity=".75"
-                  class=""
-                />
-              </svg>
-              <span class="text-sm -mt-1">Movie</span>
-            </div>
-          </li>
-          <li>PG</li>
-        </ul>
-        <p class="text-white text-lg">Beyond Earth</p>
-      </div>
-    
-      <div class="hover-play hidden p-3 bg-white bg-opacity-20 rounded-full hover:flex  peer-hover:flex gap-2 absolute top-[40%] left-[40%]">
-       <img src="../../../assets/icon-play.svg" alt="" class="">
-       <p class="text-white">Play</p>
-      </div>
-    </div>
-</div>
-     
       
 </main>
 
