@@ -1,4 +1,4 @@
-<main>
+<main class="pb-16">
     <div class="lg:flex">
   
       <div class="fixed  w-full top-0 z-10 lg:z-0">
@@ -17,9 +17,33 @@
          Bookmarked movies
         </p>
   
-        <div >
-          <app-regular-card  class="regular grid gap-6 grid-cols-2 md:grid-cols-3 md:ml-2 lg:grid-cols-4 ml-4 mx-5 lg:ml-2 mt-6"/>
+        <div  class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6">
+          @for (regularShow of bookmarkedMovies; track $index) {
+              <div class="relative pb-24 md:pb-14 w-full h-full cursor-pointer">
+              <app-regular-card [show]="regularShow"
+              />
+              </div>
+          }
         </div>
+
+        <div class="serie mt-12">
+          <p
+          class="text-white mt-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
+        >
+         Bookmarked series
+        </p>
+  
+        <div  class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6">
+          @for (regularShow of bookmarkedSeries; track $index) {
+              <div class="relative pb-24 md:pb-14 w-full h-full cursor-pointer">
+              <app-regular-card [show]="regularShow"
+              />
+              </div>
+          }
+        </div>
+        </div>
+
+       
   
   
         </div>

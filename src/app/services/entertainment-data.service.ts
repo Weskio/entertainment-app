@@ -468,19 +468,19 @@ export class EntertainmentDataService {
     }
 
     getMovies(){
-      return this.entertainmentData.filter(movie => movie.category==='movie')
+      return this.entertainmentData.filter(movie => movie.category==='Movie')
     }
 
     getSeries(){
-      return this.entertainmentData.filter(series => series.category === 'series')
+      return this.entertainmentData.filter(series => series.category === 'TV Series')
     }
 
     getBookmarkedMovies(){
-      return this.entertainmentData.filter(bookmarkedMovies => bookmarkedMovies.category==='movie' && bookmarkedMovies.isBookmarked === true)
+      return this.entertainmentData.filter(bookmarkedMovies => bookmarkedMovies.category==='Movie' && bookmarkedMovies.isBookmarked === true)
     }
 
     getBookmarkedSeries(){
-      return this.entertainmentData.filter(bookmarkedSeries => bookmarkedSeries.category==='movie' && bookmarkedSeries.isBookmarked === true)
+      return this.entertainmentData.filter(bookmarkedSeries => bookmarkedSeries.category==='TV Series' && bookmarkedSeries.isBookmarked === true)
     }
 
     getTrendingMovies(){
