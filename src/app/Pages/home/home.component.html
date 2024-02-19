@@ -35,7 +35,8 @@
             Recommended for you
           </p>
 
-          <div
+          @if(searchInput === ''){
+            <div
             class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6"
           >
             @for (regularShow of regularShows; track $index) {
@@ -44,6 +45,20 @@
             </div>
             }
           </div>
+          }
+          @else {
+            <div
+            class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6"
+          >
+            @for (regularShow of filteredShows; track $index) {
+            <div class="relative pb-24 md:pb-14 w-full h-full cursor-pointer">
+              <app-regular-card [show]="regularShow" />
+            </div>
+            }
+          </div>
+          }
+
+         
         </div>
 
       </div>

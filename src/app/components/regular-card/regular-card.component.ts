@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { EntertainmentCard } from '../../interfaces/entertainment-card';
 import { NgClass } from '@angular/common';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-regular-card',
@@ -12,5 +13,17 @@ import { NgClass } from '@angular/common';
 export class RegularCardComponent {
 
   @Input() show!: EntertainmentCard
+
+   constructor(private filter: SearchService){}
+
+  searchInput: string = '';
+
+  ngOnInit() {
+    this.filter.searchKeySubject.subscribe((data) => {
+      let searchData = data;
+      return searchData
+       
+    })
+  }
 
 }
