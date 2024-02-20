@@ -5,17 +5,29 @@ import { RegularCardComponent } from "../../components/regular-card/regular-card
 import { EntertainmentDataService } from '../../services/entertainment-data.service';
 import { EntertainmentCard } from '../../interfaces/entertainment-card';
 import { SearchService } from '../../services/search.service';
+import { NgClass, NgFor } from '@angular/common';
 
 @Component({
     selector: 'app-series',
     standalone: true,
     templateUrl: './series.component.html',
     styleUrl: './series.component.css',
-    imports: [SearchBarComponent, SidebarComponent, RegularCardComponent]
+    imports: [SearchBarComponent, SidebarComponent, RegularCardComponent, NgClass, NgFor]
 })
 export class SeriesComponent {
 
-    constructor(private seriesService:EntertainmentDataService){}
+    constructor(private seriesService:EntertainmentDataService, private searchService: SearchService){}
 
     series: EntertainmentCard[] = this.seriesService.getSeries()
+
+    filteredShows: EntertainmentCard[] = [];
+
+    searchInput: string = '';
+
+    ngOnInit(){
+        this.searchService.searchKeySubject.subscribe((data) => {
+            this.searchInput = data
+            this.filteredShows = this.seriesService.getFilteredShows(this.searchInput)
+        })
+    }
 }

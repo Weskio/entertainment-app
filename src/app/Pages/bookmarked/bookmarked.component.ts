@@ -4,6 +4,7 @@ import { SearchBarComponent } from "../../components/search-bar/search-bar.compo
 import { RegularCardComponent } from "../../components/regular-card/regular-card.component";
 import { EntertainmentDataService } from '../../services/entertainment-data.service';
 import { EntertainmentCard } from '../../interfaces/entertainment-card';
+import { SearchService } from '../../services/search.service';
 
 @Component({
     selector: 'app-bookmarked',
@@ -14,10 +15,23 @@ import { EntertainmentCard } from '../../interfaces/entertainment-card';
 })
 export class BookmarkedComponent {
 
-    constructor(private bookmarkServices: EntertainmentDataService){}
+    constructor(private bookmarkServices: EntertainmentDataService, private searchService: SearchService){}
 
     bookmarkedMovies: EntertainmentCard[] = this.bookmarkServices.getBookmarkedMovies();
 
     bookmarkedSeries: EntertainmentCard[] = this.bookmarkServices.getBookmarkedSeries()
+
+    filteredShows: EntertainmentCard[] = []
+
+    searchInput: string = ''
+
+    ngOnInit(){
+        this.searchService.searchKeySubject.subscribe((data) => {
+            this.searchInput = data
+            this.filteredShows = this.bookmarkServices.getFilteredShows(this.searchInput)
+        })
+    }
+
+
 
 }

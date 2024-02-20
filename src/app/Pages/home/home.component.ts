@@ -32,7 +32,7 @@ export class HomeComponent {
   regularShows: EntertainmentCard[] =
     this.entertainment.getAllMoviesAndSeries();
 
-  filteredShows: EntertainmentCard[] = [];
+  filteredShows: EntertainmentCard[] = []
 
   searchInput: string = '';
 
@@ -42,15 +42,17 @@ export class HomeComponent {
     this.search.searchKeySubject.subscribe((data) => {
         this.searchInput =data
      // console.log(this.searchInput)
-      this.filteredShows = this.regularShows.filter((show) =>
-      show.title.toLowerCase().includes(this.searchInput.toLowerCase())
-    );
+    //   this.filteredShows = this.regularShows.filter((show) =>
+    //   show.title.toLowerCase().includes(this.searchInput.toLowerCase())
+    // );
+    this.filteredShows = this.entertainment.getFilteredShows(this.searchInput)
     })
   }
 
-  filterShows(searchKey: string) {
-    this.filteredShows = this.regularShows.filter((show) =>
-      show.title.toLowerCase().includes(searchKey.toLowerCase())
-    );
-  }
+  
+  // filterShows(searchKey: string) {
+  //   this.filteredShows = this.regularShows.filter((show) =>
+  //     show.title.toLowerCase().includes(searchKey.toLowerCase())
+  //   );
+  // }
 }

@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { SearchService } from './search.service';
+import { EntertainmentCard } from '../interfaces/entertainment-card';
 
 @Injectable({
   providedIn: 'root'
@@ -467,6 +469,8 @@ export class EntertainmentDataService {
       return this.entertainmentData
     }
 
+
+
     getMovies(){
       return this.entertainmentData.filter(movie => movie.category==='Movie')
     }
@@ -487,7 +491,25 @@ export class EntertainmentDataService {
       return this.entertainmentData.filter(trendy => trendy.isTrending === true)
     }
 
+    searchInput: string = '';
 
+    filteredShows: EntertainmentCard[] =[]
 
-  constructor() { }
+  constructor(public filter: SearchService) { }
+
+  ngOnInit(){
+    this.filter.searchKeySubject.subscribe((data) => {
+      this.searchInput =data
+   // console.log(this.searchInput)
+   this.getFilteredShows(this.searchInput)
+  })
+  }
+
+  getFilteredShows(searchKey: string) {
+    this.filteredShows = this.entertainmentData.filter((show) =>
+      show.title.toLowerCase().includes(searchKey.toLowerCase())
+    );
+
+    return this.filteredShows
+  }
 }

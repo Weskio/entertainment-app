@@ -5,6 +5,8 @@ import { TrendingCardComponent } from "../../components/trending-card/trending-c
 import { RegularCardComponent } from "../../components/regular-card/regular-card.component";
 import { EntertainmentDataService } from '../../services/entertainment-data.service';
 import { EntertainmentCard } from '../../interfaces/entertainment-card';
+import { SearchService } from '../../services/search.service';
+import { NumbertowordsPipe } from '../../Pipe/numbertowords.pipe';
 
 @Component({
     selector: 'app-movies',
@@ -15,8 +17,18 @@ import { EntertainmentCard } from '../../interfaces/entertainment-card';
 })
 export class MoviesComponent {
 
-    constructor(private movieService: EntertainmentDataService){}
+    constructor(private movieService: EntertainmentDataService , private searchService: SearchService){}
 
     movies: EntertainmentCard[] = this.movieService.getMovies()
+
+    filteredShows: EntertainmentCard[] = []
+    searchInput: string = ''
+
+    ngOnInit() {
+        this.searchService.searchKeySubject.subscribe((data) => {
+            this.searchInput =data
+        this.filteredShows = this.movieService.getFilteredShows(this.searchInput)
+        })
+    }
 
 }

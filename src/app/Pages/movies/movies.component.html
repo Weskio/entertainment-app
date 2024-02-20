@@ -10,20 +10,43 @@
         <app-search-bar [placeholder]="'Search for Movies'" />
   
         <div class="movies mt-4 ml-2 md:ml-8 lg:ml-2">
+
+          @if(searchInput){
+            <p
+            class="text-white mt-6 mb-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
+          >
+            Found {{filteredShows.length}} results for '{{searchInput}}'
+          </p>
+          }
+          @else {
+            <p
+            class="text-white mt-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
+          >
+            Movies
+          </p>
+          }
   
-          <p
-          class="text-white mt-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
-        >
-          Movies
-        </p>
+        
   
         <div  class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6">
-          @for (movie of movies; track $index) {
-              <div class="relative pb-24 md:pb-14 w-full h-full cursor-pointer">
+
+          @if(searchInput){
+            @for (movie of filteredShows; track $index) {
+              <div class="relative  w-full h-full cursor-pointer">
               <app-regular-card [show]="movie"
               />
               </div>
           }
+          }
+          @else {
+            @for (movie of movies; track $index) {
+              <div class="relative  w-full h-full cursor-pointer">
+              <app-regular-card [show]="movie"
+              />
+              </div>
+          }
+          }
+         
         </div>
   
   

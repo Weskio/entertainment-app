@@ -13,24 +13,21 @@ import { emit } from 'process';
 })
 export class RegularCardComponent {
   @Input() show!: EntertainmentCard;
-  @Input() searchInput: string = '';
-  @Output() searchKey = new EventEmitter();
+  // @Input() searchInput: string = '';
 
-  constructor(private filter: SearchService) {}
+  // @Input() isFiltered() {
+  //   return !this.show.title
+  //     .toLowerCase()
+  //     .includes(this.searchInput.toLowerCase());
+  // }
 
-  ngOnInit() {
-    this.filter.searchKeySubject.subscribe((data) => {
-      this.searchInput = data;
-      console.log(this.searchInput);
-      this.isFiltered();
-    });
-  }
+  // constructor(private filter: SearchService) {}
 
-  isFiltered(): boolean {
-    this.searchKey.emit();
-    return !this.show.title
-      .toLowerCase()
-      .includes(this.searchInput.toLowerCase());
-     
-  }
+  // ngOnInit() {
+  //   this.filter.searchKeySubject.subscribe((data) => {
+  //     this.searchInput = data;
+  //     console.log(this.searchInput);
+  //     this.isFiltered();
+  //   });
+  // }
 }
