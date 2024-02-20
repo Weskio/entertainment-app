@@ -7,21 +7,18 @@ import { FormsModule, NgModel } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './search-bar.component.html',
-  styleUrl: './search-bar.component.css'
+  styleUrl: './search-bar.component.css',
 })
 export class SearchBarComponent {
-
   searchKey: string = '';
 
   constructor(private searchService: SearchService) {}
 
-  ngOnInit(){
-  }
+  ngOnInit() {}
 
   filterShows() {
-    this.searchService.searchUpdate(this.searchKey)
+    this.searchService.searchUpdate(this.searchKey);
   }
 
-    @Input() placeholder!: string;
-
+  @Input() placeholder!: string;
 }

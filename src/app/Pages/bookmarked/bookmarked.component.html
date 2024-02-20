@@ -12,37 +12,28 @@
         <p
           class="text-white mt-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
         >
-          Found {{filteredShows.length}} results for '{{searchInput}}'
+          Found {{ filteredShows.length }} results for '{{ searchInput }}'
         </p>
-        }
-        @else {
-           <p
+        } @else {
+        <p
           class="text-white mt-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
         >
           Bookmarked movies
         </p>
         }
-       
 
         <div
           class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6"
         >
-        @if(searchInput){
-          @for (regularShow of filteredShows; track $index) {
+          @if(searchInput){ @for (regularShow of filteredShows; track $index) {
           <app-regular-card [show]="regularShow" />
-          }
-        }
-
-        @else {
-           @for (regularShow of bookmarkedMovies; track $index) {
+          } } @else { @for (regularShow of bookmarkedMovies; track $index) {
           <app-regular-card [show]="regularShow" />
-          }
-        }
-         
+          } }
         </div>
 
         @if(!searchInput){
-           <div class="serie mt-12">
+        <div class="serie mt-12">
           <p
             class="text-white mt-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
           >
@@ -60,9 +51,6 @@
           </div>
         </div>
         }
-
-       
-
       </div>
     </div>
   </div>

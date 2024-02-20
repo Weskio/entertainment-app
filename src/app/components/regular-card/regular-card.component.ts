@@ -13,21 +13,4 @@ import { emit } from 'process';
 })
 export class RegularCardComponent {
   @Input() show!: EntertainmentCard;
-  // @Input() searchInput: string = '';
-
-  // @Input() isFiltered() {
-  //   return !this.show.title
-  //     .toLowerCase()
-  //     .includes(this.searchInput.toLowerCase());
-  // }
-
-  // constructor(private filter: SearchService) {}
-
-  // ngOnInit() {
-  //   this.filter.searchKeySubject.subscribe((data) => {
-  //     this.searchInput = data;
-  //     console.log(this.searchInput);
-  //     this.isFiltered();
-  //   });
-  // }
 }
