@@ -4,6 +4,7 @@ import { SidebarComponent } from "../../components/sidebar/sidebar.component";
 import { RegularCardComponent } from "../../components/regular-card/regular-card.component";
 import { EntertainmentDataService } from '../../services/entertainment-data.service';
 import { EntertainmentCard } from '../../interfaces/entertainment-card';
+import { SearchService } from '../../services/search.service';
 
 @Component({
     selector: 'app-series',
@@ -17,5 +18,4 @@ export class SeriesComponent {
     constructor(private seriesService:EntertainmentDataService){}
 
     series: EntertainmentCard[] = this.seriesService.getSeries()
-
 }

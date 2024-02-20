@@ -41,7 +41,7 @@ export class HomeComponent {
     this.regularShows = this.entertainment.getAllMoviesAndSeries();
     this.search.searchKeySubject.subscribe((data) => {
         this.searchInput =data
-      console.log(this.searchInput)
+     // console.log(this.searchInput)
       this.filteredShows = this.regularShows.filter((show) =>
       show.title.toLowerCase().includes(this.searchInput.toLowerCase())
     );

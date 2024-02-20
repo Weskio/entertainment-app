@@ -16,11 +16,9 @@ export class SearchBarComponent {
   constructor(private searchService: SearchService) {}
 
   ngOnInit(){
-   // console.log(this.searchService)
   }
 
   filterShows() {
-    //console.log(this.searchKey)
     this.searchService.searchUpdate(this.searchKey)
   }
 

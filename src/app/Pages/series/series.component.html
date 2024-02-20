@@ -19,7 +19,7 @@
   
         <div  class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6">
           @for (series of series; track $index) {
-              <div class="relative pb-24 md:pb-14 w-full h-full cursor-pointer">
+              <div>
               <app-regular-card [show]="series"
               />
               </div>
