@@ -40,6 +40,7 @@
       <button
         type="submit"
         [disabled]="registerForm.invalid"
+        routerLink="/"
         class="w-full text-[1rem] rounded-md hover:text-dark-blue disabled:hover:bg-active-red disabled:hover:text-white hover:bg-white bg-active-red py-3 mt-12 text-white disabled:opacity-40 disabled:cursor-not-allowed"
       >
         Create an account
@@ -47,7 +48,7 @@
 
       <p class="text-[1.1rem] text-center text-white mt-6">
         Already have an account?
-        <a href="/login">
+        <a href="/">
           <span class="text-active-red cursor-pointer">Login</span>
         </a>
       </p>

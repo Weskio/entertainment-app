@@ -501,25 +501,20 @@ export class EntertainmentDataService {
     );
   }
 
-  searchInput: string = '';
-
   filteredShows: EntertainmentCard[] = [];
 
-  constructor(public filter: SearchService) {}
-
-  ngOnInit() {
-    this.filter.searchKeySubject.subscribe((data) => {
-      this.searchInput = data;
-
-      this.getFilteredShows(this.searchInput);
+  getFilteredShows(
+    searchKey: string,
+    categories: string[],
+    bookmarked?: boolean[]
+  ) {
+    this.filteredShows = this.entertainmentData.filter((show) => {
+      return (
+        show.title.toLowerCase().includes(searchKey.toLowerCase()) &&
+        categories.includes(show.category) &&
+        (bookmarked === undefined || bookmarked.includes(show.isBookmarked))
+      );
     });
-  }
-
-  getFilteredShows(searchKey: string) {
-    this.filteredShows = this.entertainmentData.filter((show) =>
-      show.title.toLowerCase().includes(searchKey.toLowerCase())
-    );
-
     return this.filteredShows;
   }
 }

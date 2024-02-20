@@ -8,32 +8,28 @@
       <app-search-bar [placeholder]="'Search for movies and series'" />
 
       @if(searchInput){
-        <p
+      <p
         class="text-white mt-8 mx-5 md:mx-8 md:text-3xl text-2xl font-[200] lg:ml-2"
       >
-       Found {{filteredShows.length}} results for '{{searchInput}}'
+        Found {{ filteredShows.length }} results for '{{ searchInput }}'
       </p>
 
-        <div
+      <div
         class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6"
       >
         @for (regularShow of filteredShows; track $index) {
-        <div class="relative pb-24 md:pb-14 w-full h-full cursor-pointer">
-          <app-regular-card [show]="regularShow" />
-        </div>
+        <app-regular-card [show]="regularShow" />
         }
       </div>
-      }
-
-      @else {
-       <div class="movie-cards">
+      } @else {
+      <div class="movie-cards">
         <p
           class="text-white mx-5 md:mx-8 md:text-3xl text-2xl font-[200] lg:ml-2"
         >
           Trending
         </p>
 
-        <div class="trending mt-4 ml-5 md:ml-8 lg:ml-2">
+        <div class="trending mt-4 md:ml-8 lg:ml-2">
           <div
             class="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
           >
@@ -57,16 +53,14 @@
             class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6"
           >
             @for (regularShow of regularShows; track $index) {
-            <div class="relative pb-24 md:pb-14 w-full h-full cursor-pointer">
-              <app-regular-card [show]="regularShow" />
-            </div>
+
+            <app-regular-card [show]="regularShow" />
+
             }
           </div>
         </div>
-      </div> 
+      </div>
       }
-
-      
     </div>
   </div>
 </main>

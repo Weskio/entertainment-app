@@ -42,7 +42,7 @@ export class HomeComponent {
     this.search.searchKeySubject.subscribe((data) => {
       this.searchInput = data;
       this.filteredShows = this.entertainment.getFilteredShows(
-        this.searchInput
+        this.searchInput, ['Movie', 'TV Series'], [true, false]
       );
     });
   }
