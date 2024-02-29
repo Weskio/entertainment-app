@@ -15,3 +15,4 @@ export const routes: Routes = [
     {path:"bookmarked", component: BookmarkedComponent}
 
 ];
+ 

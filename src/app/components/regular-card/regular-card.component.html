@@ -1,5 +1,6 @@
 <div class="relative pb-24 md:pb-14 w-full h-full cursor-pointer">
   <!-- medium -->
+  @if(show.thumbnail.regular.large){
   <img
     [src]="show.thumbnail.regular.medium"
     alt=""
@@ -18,6 +19,7 @@
     alt=""
     class="hidden lg:block w-full peer h-full rounded-lg opacity-70 hover:opacity-30"
   />
+  }
 
   <div class="bookmark absolute top-3 right-4">
     <svg
@@ -54,7 +56,9 @@
               class=""
             />
           </svg>
-          <span class="lg:text-sm text-[0.75rem] -mt-1">{{ show.category }}</span>
+          <span class="lg:text-sm text-[0.75rem] -mt-1">{{
+            show.category
+          }}</span>
         </div>
       </li>
       <li class="lg:text-sm text-[0.75rem]">{{ show.rating }}</li>
@@ -62,8 +66,10 @@
     <p class="text-white text-lg">{{ show.title }}</p>
   </div>
 
-  <div class="hover-play hidden p-2 md:p-3 bg-white bg-opacity-20 rounded-full hover:flex  peer-hover:flex gap-2 absolute top-[25%] left-[30%] md:top-[30%] md:left-[35%]">
-    <img src="../../../assets/icon-play.svg" alt="" class="">
+  <div
+    class="hover-play hidden p-2 md:p-3 bg-white bg-opacity-20 rounded-full hover:flex peer-hover:flex gap-2 absolute top-[25%] left-[30%] md:top-[30%] md:left-[35%]"
+  >
+    <img src="../../../assets/icon-play.svg" alt="" class="" />
     <p class="text-white">Play</p>
-   </div>
+  </div>
 </div>

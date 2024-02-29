@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { EntertainmentCard } from '../../interfaces/entertainment-card';
 import { NgClass, NgIf } from '@angular/common';
 import { SearchService } from '../../services/search.service';
-import { emit } from 'process';
 
 @Component({
   selector: 'app-regular-card',
