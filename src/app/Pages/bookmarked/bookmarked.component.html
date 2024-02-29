@@ -1,4 +1,5 @@
-<main class="pb-16">
+@defer {
+  <main class="pb-16">
   <div class="lg:flex">
     <div class="fixed w-full top-0 z-10 lg:z-0">
       <app-sidebar [activePage]="'bookmarked'" />
@@ -55,3 +56,10 @@
     </div>
   </div>
 </main>
+}
+
+@loading(minimum 600ms){
+  <app-loading/>
+}
+
+

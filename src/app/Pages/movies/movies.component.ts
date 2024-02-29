@@ -7,18 +7,20 @@ import { EntertainmentDataService } from '../../services/entertainment-data.serv
 import { EntertainmentCard } from '../../interfaces/entertainment-card';
 import { SearchService } from '../../services/search.service';
 import { NumbertowordsPipe } from '../../Pipe/numbertowords.pipe';
+import { LoadingComponent } from "../../components/loading/loading.component";
 
 @Component({
-  selector: 'app-movies',
-  standalone: true,
-  templateUrl: './movies.component.html',
-  styleUrl: './movies.component.css',
-  imports: [
-    SidebarComponent,
-    SearchBarComponent,
-    TrendingCardComponent,
-    RegularCardComponent,
-  ],
+    selector: 'app-movies',
+    standalone: true,
+    templateUrl: './movies.component.html',
+    styleUrl: './movies.component.css',
+    imports: [
+        SidebarComponent,
+        SearchBarComponent,
+        TrendingCardComponent,
+        RegularCardComponent,
+        LoadingComponent
+    ]
 })
 export class MoviesComponent {
   constructor(

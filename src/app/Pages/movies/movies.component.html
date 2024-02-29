@@ -1,41 +1,47 @@
-<main class="pb-16">
-  <div class="lg:flex">
-    <div class="fixed w-full top-0 z-10 lg:z-0">
-      <app-sidebar [activePage]="'movies'" />
-    </div>
-
-    <div class="main-body pt-16 md:pt-24 lg:pt-0 z-10 lg:mt-2 lg:ml-40">
-      <app-search-bar [placeholder]="'Search for Movies'" />
-
-      <div class="movies mt-4 md:ml-8 lg:ml-2">
-        @if(searchInput){
-        <p
-          class="text-white mt-6 mb-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
-        >
-          Found {{ filteredShows.length }} results in movies for '{{ searchInput }}'
-        </p>
-        } @else {
-        <p
-          class="text-white mt-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
-        >
-          Movies
-        </p>
-        }
-
-        <div
-          class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6"
-        >
-          @if(searchInput){ @for (movie of filteredShows; track $index) {
-          <div class="relative w-full h-full cursor-pointer">
-            <app-regular-card [show]="movie" />
+@defer {
+  <main class="pb-16">
+    <div class="lg:flex">
+      <div class="fixed w-full top-0 z-10 lg:z-0">
+        <app-sidebar [activePage]="'movies'" />
+      </div>
+  
+      <div class="main-body pt-16 md:pt-24 lg:pt-0 z-10 lg:mt-2 lg:ml-40">
+        <app-search-bar [placeholder]="'Search for Movies'" />
+  
+        <div class="movies mt-4 md:ml-8 lg:ml-2">
+          @if(searchInput){
+          <p
+            class="text-white mt-6 mb-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
+          >
+            Found {{ filteredShows.length }} results in movies for '{{ searchInput }}'
+          </p>
+          } @else {
+          <p
+            class="text-white mt-6 mx-5 md:mx-2 md:text-3xl text-2xl font-[200] lg:ml-2"
+          >
+            Movies
+          </p>
+          }
+  
+          <div
+            class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6"
+          >
+            @if(searchInput){ @for (movie of filteredShows; track $index) {
+            <div class="relative w-full h-full cursor-pointer">
+              <app-regular-card [show]="movie" />
+            </div>
+            } } @else { @for (movie of movies; track $index) {
+            <div class="relative w-full h-full cursor-pointer">
+              <app-regular-card [show]="movie" />
+            </div>
+            } }
           </div>
-          } } @else { @for (movie of movies; track $index) {
-          <div class="relative w-full h-full cursor-pointer">
-            <app-regular-card [show]="movie" />
-          </div>
-          } }
         </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
+}
+
+@loading(minimum 600ms){
+  <app-loading/>
+}

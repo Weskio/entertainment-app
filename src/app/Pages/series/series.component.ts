@@ -6,19 +6,21 @@ import { EntertainmentDataService } from '../../services/entertainment-data.serv
 import { EntertainmentCard } from '../../interfaces/entertainment-card';
 import { SearchService } from '../../services/search.service';
 import { NgClass, NgFor } from '@angular/common';
+import { LoadingComponent } from "../../components/loading/loading.component";
 
 @Component({
-  selector: 'app-series',
-  standalone: true,
-  templateUrl: './series.component.html',
-  styleUrl: './series.component.css',
-  imports: [
-    SearchBarComponent,
-    SidebarComponent,
-    RegularCardComponent,
-    NgClass,
-    NgFor,
-  ],
+    selector: 'app-series',
+    standalone: true,
+    templateUrl: './series.component.html',
+    styleUrl: './series.component.css',
+    imports: [
+        SearchBarComponent,
+        SidebarComponent,
+        RegularCardComponent,
+        NgClass,
+        NgFor,
+        LoadingComponent
+    ]
 })
 export class SeriesComponent {
   constructor(

@@ -1,40 +1,46 @@
-<main class="pb-16">
-  <div class="lg:flex">
-    <div class="fixed w-full top-0 z-10 lg:z-0">
-      <app-sidebar [activePage]="'series'" />
-    </div>
-
-    <div class="main-body pt-16 md:pt-24 lg:pt-0 z-10 lg:mt-2 lg:ml-40">
-      <app-search-bar [placeholder]="'Search for TV Series'" />
-
-      <div class="movies mt-4 md:ml-8 lg:ml-2">
-        @if(searchInput){
-        <p
-          class="text-white mt-8 mx-5 md:mx-8 md:text-3xl text-2xl font-[200] lg:ml-2"
-        >
-          Found {{ filteredShows.length }} results in series for '{{ searchInput }}'
-        </p>
-        } @else {
-
-        <p
-          class="text-white mt-8 mx-5 md:mx-8 md:text-3xl text-2xl font-[200] lg:ml-2"
-        >
-          Series
-        </p>
-        }
-
-        <div
-          class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6"
-        >
-          @if(searchInput){ @for (series of filteredShows; track $index) {
-
-          <app-regular-card [show]="series" />
-          } } @else { @for (series of series; track $index) {
-
-          <app-regular-card [show]="series" />
-          } }
+@defer {
+  <main class="pb-16">
+    <div class="lg:flex">
+      <div class="fixed w-full top-0 z-10 lg:z-0">
+        <app-sidebar [activePage]="'series'" />
+      </div>
+  
+      <div class="main-body pt-16 md:pt-24 lg:pt-0 z-10 lg:mt-2 lg:ml-40">
+        <app-search-bar [placeholder]="'Search for TV Series'" />
+  
+        <div class="movies mt-4 md:ml-8 lg:ml-2">
+          @if(searchInput){
+          <p
+            class="text-white mt-8 mx-5 md:mx-8 md:text-3xl text-2xl font-[200] lg:ml-2"
+          >
+            Found {{ filteredShows.length }} results in series for '{{ searchInput }}'
+          </p>
+          } @else {
+  
+          <p
+            class="text-white mt-8 mx-5 md:mx-8 md:text-3xl text-2xl font-[200] lg:ml-2"
+          >
+            Series
+          </p>
+          }
+  
+          <div
+            class="regular grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-5 lg:ml-2 mt-6"
+          >
+            @if(searchInput){ @for (series of filteredShows; track $index) {
+  
+            <app-regular-card [show]="series" />
+            } } @else { @for (series of series; track $index) {
+  
+            <app-regular-card [show]="series" />
+            } }
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
+}
+
+@loading(minimum 600ms){
+  <app-loading/>
+}

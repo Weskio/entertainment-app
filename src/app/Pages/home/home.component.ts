@@ -7,19 +7,21 @@ import { EntertainmentDataService } from '../../services/entertainment-data.serv
 import { EntertainmentCard } from '../../interfaces/entertainment-card';
 import { NgFor } from '@angular/common';
 import { SearchService } from '../../services/search.service';
+import { LoadingComponent } from "../../components/loading/loading.component";
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
-  imports: [
-    SidebarComponent,
-    SearchBarComponent,
-    TrendingCardComponent,
-    RegularCardComponent,
-    NgFor,
-  ],
+    selector: 'app-home',
+    standalone: true,
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css',
+    imports: [
+        SidebarComponent,
+        SearchBarComponent,
+        TrendingCardComponent,
+        RegularCardComponent,
+        NgFor,
+        LoadingComponent
+    ]
 })
 export class HomeComponent {
   constructor(

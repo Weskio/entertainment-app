@@ -5,13 +5,14 @@ import { RegularCardComponent } from '../../components/regular-card/regular-card
 import { EntertainmentDataService } from '../../services/entertainment-data.service';
 import { EntertainmentCard } from '../../interfaces/entertainment-card';
 import { SearchService } from '../../services/search.service';
+import { LoadingComponent } from "../../components/loading/loading.component";
 
 @Component({
-  selector: 'app-bookmarked',
-  standalone: true,
-  templateUrl: './bookmarked.component.html',
-  styleUrl: './bookmarked.component.css',
-  imports: [SidebarComponent, SearchBarComponent, RegularCardComponent],
+    selector: 'app-bookmarked',
+    standalone: true,
+    templateUrl: './bookmarked.component.html',
+    styleUrl: './bookmarked.component.css',
+    imports: [SidebarComponent, SearchBarComponent, RegularCardComponent, LoadingComponent]
 })
 export class BookmarkedComponent {
   constructor(

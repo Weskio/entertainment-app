@@ -467,7 +467,7 @@ export class EntertainmentDataService {
 
   getAllMoviesAndSeries() {
     return this.entertainmentData;
-  }
+  } 
 
   getMovies() {
     return this.entertainmentData.filter((movie) => movie.category === 'Movie');
